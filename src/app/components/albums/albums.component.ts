@@ -9,16 +9,35 @@ import {ArtistService} from '../../services/artist.service';
 })
 export class AlbumsComponent implements OnInit {
   albums: AlbumInfo[] = [];
+  wasRequested : boolean = false;
   constructor(private artistService:ArtistService) { }
 
   ngOnInit(): void {
-    var albumResult = this.artistService.getArtistAlbums().subscribe(
-      data => {
-        this.albums = data.results;
-      }
-    );
-    
-     
+    this.albums = [];
+    this.wasRequested = false;
+  }
+
+  searchArtistAlbums(artist:string): void{
+    if(artist == ""){
+      this.wasRequested = false;
+    }
+    else{
+      var albumResult = this.artistService.getArtistAlbums(artist).subscribe(
+        data => {
+          this.wasRequested = true;
+          this.albums = data.results;
+        }
+      );
+    }
+  }
+
+  hasAlbumsToShow(): boolean{
+    if(this.albums.length == 0){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
 }

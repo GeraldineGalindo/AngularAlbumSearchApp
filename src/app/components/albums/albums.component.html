@@ -1,4 +1,15 @@
-<h1>Albums</h1>
-<app-album-item *ngFor='let album of albums' [album]="album">
-</app-album-item>
+<app-search-artist-albums (requestedArtistAlbums)="searchArtistAlbums($event)"></app-search-artist-albums>
+
+<div *ngIf="hasAlbumsToShow() && wasRequested">
+    <app-album-item *ngFor='let album of albums' [album]="album">
+    </app-album-item>
+</div>
+<div *ngIf="!hasAlbumsToShow() && wasRequested">
+    <app-empty-result></app-empty-result>
+</div>
+<div *ngIf="!hasAlbumsToShow() && !wasRequested">
+    <app-welcome-text></app-welcome-text>
+</div>
+
+
 

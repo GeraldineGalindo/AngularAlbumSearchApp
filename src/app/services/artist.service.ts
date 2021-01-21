@@ -11,8 +11,8 @@ export class ArtistService {
   albumUrl !: 'https://itunes.apple.com/search';
   constructor(private http:HttpClient) { }
 
-  getArtistAlbums():Observable<any>{
+  getArtistAlbums(artist:string):Observable<any>{
     const url = 'https://itunes.apple.com/search';
-    return this.http.get<any>(`${url}?term=coldplay&entity=album`);
+    return this.http.get<any>(`${url}?term=${artist}&entity=album`);
   }
 }
