@@ -13,4 +13,11 @@ export class AlbumItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setClasses(){
+    let classes = {
+      album: true,
+    }
+    return classes;
+  }
+
 }
