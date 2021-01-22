@@ -1,17 +1,21 @@
 <body>
     <div class="container">
         <app-search-artist-albums (requestedArtistAlbums)="searchArtistAlbums($event)"></app-search-artist-albums>
-    <div *ngIf="hasAlbumsToShow() && wasRequested">
+    <div *ngIf="hasAlbumsToShow() && wasRequested" class="cards">
         <app-order-result-options (orderResults)="orderByCriteria($event)"></app-order-result-options>
         <div class="row justify-content-center">
             <app-album-item *ngFor='let album of albums | paginate: {itemsPerPage: pageNumber, currentPage: actualPage}' [album]="album" class="col-xs-12 col-sm-6 col-lg-4 col-xl-3">
             </app-album-item>
         </div>
         <div class="pagination-options">
-            <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
-            <button (click)="decreasePerPage()">-</button>
-            <input [value]="pageNumber">
-            <button (click)="increasePerPage()">+</button>
+            <form class="controller form-inline">
+                <button class="btn btn-primary" (click)="decreasePerPage()">-</button>
+                <input class="perPage form-control" [value]="pageNumber">
+                <button class="btn btn-primary" (click)="increasePerPage()">+</button>
+            </form>
+            <div class="pages">
+                <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
+            </div>
         </div>
     </div>
     <div *ngIf="!hasAlbumsToShow() && wasRequested">
