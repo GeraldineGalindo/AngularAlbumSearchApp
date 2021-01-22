@@ -1,14 +1,18 @@
-<div class="generalContainer" [ngClass]="setClasses()">
-    <img [src]="album.artworkUrl100" alt= "Cover">
-    <div class='albumInfo'>
-        <p>
+<div class="general-container" [ngClass]="setClasses()">
+    <div class="album-image">
+        <img [src]="album.artworkUrl100" alt= "Cover">
+    </div>
+    <div class='album-info'>
+        <span>
             <b>Album: </b> {{album.collectionName}}
-        </p>
-        <p>
+        </span>
+        <br>
+        <span>
             <b>Artist: </b> {{album.artistName}}
-        </p>
-        <p>
+        </span>
+        <br>
+        <span>
             <b>Price: </b> {{album.collectionPrice}} {{album.currency}}
-        </p>
+        </span>
     </div>
 </div>

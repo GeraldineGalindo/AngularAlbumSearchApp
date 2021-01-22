@@ -14,7 +14,7 @@
 <div *ngIf="!hasAlbumsToShow() && wasRequested">
     <app-empty-result></app-empty-result>
 </div>
-<div *ngIf="!hasAlbumsToShow() && !wasRequested">
+<div *ngIf="!wasRequested">
     <app-welcome-text></app-welcome-text>
 </div>
 

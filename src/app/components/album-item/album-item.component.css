@@ -1,3 +1,31 @@
-.generalContainer{
-    background-color:lavenderblush;
+*,
+*::before,
+*::after{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+}
+
+.general-container{
+    background: linear-gradient(-90deg, rgb(204, 69, 242, 0.3),rgb(49, 170, 193, 0.3));
+    background-color: transparent;
+    height:130px;
+    padding: 10px;
+
+}
+
+img {
+    float:left;
+    height: 120px;
+    width: 120px;
+}
+
+.album-info{
+    padding-left: 150px;
 }
