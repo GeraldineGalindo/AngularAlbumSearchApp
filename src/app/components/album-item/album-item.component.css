@@ -14,8 +14,7 @@ body{
 
 .general-container{
     background: linear-gradient(-90deg, rgb(204, 69, 242, 0.3),rgb(49, 170, 193, 0.3));
-    background-color: transparent;
-    height:130px;
+    height:140px;
     padding: 10px;
 
 }

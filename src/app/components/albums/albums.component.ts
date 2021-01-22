@@ -30,7 +30,7 @@ export class AlbumsComponent implements OnInit {
           this.wasRequested = true;
           this.albums = data.results;
           this.albums = this.albums.filter(function(album){
-            return album.artistName.includes(artist);
+            return album.artistName.toLocaleUpperCase().includes(artist.toUpperCase());
           })
           this.albums.sort(this.compareAsc);
         },
