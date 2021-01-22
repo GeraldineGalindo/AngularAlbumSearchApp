@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome-text.component.css']
 })
 export class WelcomeTextComponent implements OnInit {
-
+  welcomeMessage: string = "Welcome, to begin write the name of an artist";
   constructor() { }
 
   ngOnInit(): void {

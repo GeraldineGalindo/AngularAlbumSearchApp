@@ -19,7 +19,8 @@ describe('WelcomeTextComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be seen a welcome message to begin with the search', () => {
+    let welcomeMessage : string = component.welcomeMessage;
+    expect(welcomeMessage).toEqual("Welcome, to begin write the name of an artist");
   });
 });

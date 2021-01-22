@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./empty-result.component.css']
 })
 export class EmptyResultComponent implements OnInit {
-
+  advice: string = "The artist whom you are looking for was not found";
   constructor() { }
 
   ngOnInit(): void {

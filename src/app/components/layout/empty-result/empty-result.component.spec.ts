@@ -19,7 +19,8 @@ describe('EmptyResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create an advice of no found artist', () => {
+    let adviceShown : string = component.advice;
+    expect(adviceShown).toEqual("The artist whom you are looking for was not found");
   });
 });

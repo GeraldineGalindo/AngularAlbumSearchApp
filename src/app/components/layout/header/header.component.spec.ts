@@ -19,7 +19,8 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be seen the title of the application', () => {
+    let title: string = component.title;
+    expect(title).toEqual("ITunes Artist Album Searcher");
   });
 });
