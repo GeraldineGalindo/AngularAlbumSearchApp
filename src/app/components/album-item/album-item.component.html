@@ -1,18 +1,23 @@
 <div class="general-container" [ngClass]="setClasses()">
     <div class="album-image">
-        <img [src]="album.artworkUrl100" alt= "Cover">
+        <div *ngIf="hasCover()">
+            <img [src]="album.artworkUrl100" alt= "Cover"/>
+        </div>
+        <div *ngIf="!hasCover()">
+            <img src="https://cdn.vox-cdn.com/thumbor/Wkn_G9T1WDLJCtOkThcezJha_hA=/0x0:1200x800/920x613/filters:focal(504x304:696x496):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63387814/Screen_Shot_2019_04_10_at_11.45.32_AM.0.png" alt="Default Cover"/>
+        </div>
     </div>
     <div class='album-info'>
         <span>
-            <b>Album: </b> {{album.collectionName}}
+            <b>Album: </b> {{albumName}}
         </span>
         <br>
         <span>
-            <b>Artist: </b> {{album.artistName}}
-        </span>
+            <b>Artist: </b> {{artistName}}
+        </span> 
         <br>
         <span>
-            <b>Price: </b> {{album.collectionPrice}} {{album.currency}}
+            <b>Price: </b> {{albumPrice}} {{currency}}
         </span>
     </div>
 </div>
