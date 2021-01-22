@@ -2,8 +2,14 @@
 
 <div *ngIf="hasAlbumsToShow() && wasRequested">
     <app-order-result-options (orderResults)="orderByCriteria($event)"></app-order-result-options>
-    <app-album-item *ngFor='let album of albums' [album]="album">
+    <app-album-item *ngFor='let album of albums | paginate: {itemsPerPage: pageNumber, currentPage: actualPage}' [album]="album">
     </app-album-item>
+    <div class="pagination-options">
+        <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
+        <button (click)="decreasePerPage()">-</button>
+        <input [value]="pageNumber">
+        <button (click)="increasePerPage()">+</button>
+    </div>
 </div>
 <div *ngIf="!hasAlbumsToShow() && wasRequested">
     <app-empty-result></app-empty-result>

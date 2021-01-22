@@ -10,6 +10,8 @@ import {ArtistService} from '../../services/artist.service';
 export class AlbumsComponent implements OnInit {
   albums: AlbumInfo[] = [];
   wasRequested : boolean = false;
+  actualPage: number = 1;
+  pageNumber: number = 5;
   constructor(private artistService:ArtistService) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class AlbumsComponent implements OnInit {
           this.wasRequested = true;
           this.albums = data.results;
           this.albums = this.albums.filter(function(album){
-            return album.artistName == artist;
+            return album.artistName.includes(artist);
           })
           this.albums.sort(this.compareAsc);
         },
@@ -83,5 +85,22 @@ export class AlbumsComponent implements OnInit {
     }
 
   }
+
+  decreasePerPage(){
+    if(this.pageNumber - 5 <= 0){
+      this.pageNumber = 1;
+    }
+    else{
+      this.pageNumber -= 5;
+    }
+  }
+
+  increasePerPage(){
+    if(this.pageNumber == 1){
+      this.pageNumber = 0;
+    }
+    this.pageNumber += 5;
+  }
+
 
 }
