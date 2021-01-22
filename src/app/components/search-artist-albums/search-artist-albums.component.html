@@ -1,4 +1,8 @@
-<form class="form" (ngSubmit)="onSubmit()">
-    <input type="text" name="artist" [(ngModel)]="artist" placeholder="Write an artist here">
-    <input type="submit" value="Search Albums">
+<form class="input-group" (ngSubmit)="onSubmit()">
+    <input class="form-control" type="text" name="artist" [(ngModel)]="artist" placeholder="Write an artist here">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">
+            Search Artist
+        </button>
+    </span>
 </form>
