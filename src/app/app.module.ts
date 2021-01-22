@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { SearchArtistAlbumsComponent } from './components/search-artist-albums/search-artist-albums.component';
 import { EmptyResultComponent } from './components/layout/empty-result/empty-result.component';
 import { WelcomeTextComponent } from './components/layout/welcome-text/welcome-text.component';
+import { OrderResultOptionsComponent } from './components/order-result-options/order-result-options.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WelcomeTextComponent } from './components/layout/welcome-text/welcome-t
     HeaderComponent,
     SearchArtistAlbumsComponent,
     EmptyResultComponent,
-    WelcomeTextComponent
+    WelcomeTextComponent,
+    OrderResultOptionsComponent
   ],
   imports: [
     BrowserModule,

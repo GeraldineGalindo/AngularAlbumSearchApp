@@ -17,6 +17,7 @@ export class AlbumsComponent implements OnInit {
     this.wasRequested = false;
   }
 
+
   searchArtistAlbums(artist:string): void{
     if(artist == ""){
       this.wasRequested = false;
@@ -26,7 +27,12 @@ export class AlbumsComponent implements OnInit {
         data => {
           this.wasRequested = true;
           this.albums = data.results;
-        }
+          this.albums = this.albums.filter(function(album){
+            return album.artistName == artist;
+          })
+          this.albums.sort(this.compareAsc);
+        },
+        err => console.log('Http Error', err)
       );
     }
   }
@@ -38,6 +44,44 @@ export class AlbumsComponent implements OnInit {
     else{
       return true;
     }
+  }
+
+  compareAsc(a:AlbumInfo, b:AlbumInfo): number{
+    const albumA = a.collectionName.toUpperCase();
+    const albumB = b.collectionName.toUpperCase();
+
+    let comparison = 0;
+    if(albumA > albumB){
+      comparison = 1;
+    }
+    else if(albumA < albumB){
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  compareDes(a:AlbumInfo, b:AlbumInfo): number{
+    const albumA = a.collectionName.toUpperCase();
+    const albumB = b.collectionName.toUpperCase();
+
+    let comparison = 0;
+    if(albumA < albumB){
+      comparison = 1;
+    }
+    else if(albumA > albumB){
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  orderByCriteria(criteria: string): void{
+    if(criteria == "Ascendant"){
+      this.albums.sort(this.compareAsc);
+    }
+    if(criteria =="Descendant"){
+      this.albums.sort(this.compareDes);
+    }
+
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AlbumInfo } from '../models/AlbumInfo';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -13,6 +13,7 @@ export class ArtistService {
 
   getArtistAlbums(artist:string):Observable<any>{
     const url = 'https://itunes.apple.com/search';
-    return this.http.get<any>(`${url}?term=${artist}&entity=album`);
+    //return this.http.get<any>(`${url}?term=${artist}&entity=album`);
+    return this.http.post<any>(`${url}?term=${artist}&entity=album`,artist);
   }
 }
