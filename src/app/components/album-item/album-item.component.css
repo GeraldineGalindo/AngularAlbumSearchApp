@@ -12,19 +12,32 @@ body{
     align-items: center;
 }
 
-.general-container{
-    background: linear-gradient(-90deg, rgb(204, 69, 242, 0.3),rgb(49, 170, 193, 0.3));
-    height:140px;
+.card-container{
+    background-image: linear-gradient(to right, #50C9C3 0%, #96DEDA  51%, #50C9C3  100%);
+    margin: 10px;
     padding: 10px;
-
+    min-height: 300px;
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
 }
 
-img {
-    float:left;
+.card-container:hover{
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+img{
     height: 120px;
     width: 120px;
 }
 
-.album-info{
-    padding-left: 150px;
+.card-body{
+    padding-top: 30px;
 }

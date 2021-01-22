@@ -13,6 +13,7 @@ import { SearchArtistAlbumsComponent } from './components/search-artist-albums/s
 import { EmptyResultComponent } from './components/layout/empty-result/empty-result.component';
 import { WelcomeTextComponent } from './components/layout/welcome-text/welcome-text.component';
 import { OrderResultOptionsComponent } from './components/order-result-options/order-result-options.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { OrderResultOptionsComponent } from './components/order-result-options/o
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,23 +1,27 @@
-<div class="general-container" [ngClass]="setClasses()">
-    <div class="album-image">
+<div class="card text-center card-container" style="width: 18rem;">
+    <div class="album-image card-img-top">
         <div *ngIf="hasCover()">
-            <img [src]="album.artworkUrl100" alt= "Cover"/>
+            <img [src]="album.artworkUrl100" alt= "Cover" class="card-img-top"/>
         </div>
         <div *ngIf="!hasCover()">
-            <img src="https://cdn.vox-cdn.com/thumbor/Wkn_G9T1WDLJCtOkThcezJha_hA=/0x0:1200x800/920x613/filters:focal(504x304:696x496):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63387814/Screen_Shot_2019_04_10_at_11.45.32_AM.0.png" alt="Default Cover"/>
+            <img src="https://cdn.vox-cdn.com/thumbor/Wkn_G9T1WDLJCtOkThcezJha_hA=/0x0:1200x800/920x613/filters:focal(504x304:696x496):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63387814/Screen_Shot_2019_04_10_at_11.45.32_AM.0.png" alt="Default Cover" class="card-img-top"/>
         </div>
     </div>
-    <div class='album-info'>
-        <span>
-            <b>Album: </b> {{albumName}}
+    <div class="card-body">
+        <span class="card-title">
+            <b>{{albumName}}</b>
         </span>
         <br>
-        <span>
+        <span class="card-text">
             <b>Artist: </b> {{artistName}}
         </span> 
         <br>
-        <span>
+        <span class="card-text">
             <b>Price: </b> {{albumPrice}} {{currency}}
         </span>
     </div>
-</div>
+ </div>
+
+
+
+

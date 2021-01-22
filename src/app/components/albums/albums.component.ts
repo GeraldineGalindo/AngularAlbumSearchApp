@@ -11,7 +11,7 @@ export class AlbumsComponent implements OnInit {
   albums: AlbumInfo[] = [];
   wasRequested : boolean = false;
   actualPage: number = 1;
-  pageNumber: number = 5;
+  pageNumber: number = 8;
   constructor(private artistService:ArtistService) { }
 
   ngOnInit(): void {
@@ -87,19 +87,19 @@ export class AlbumsComponent implements OnInit {
   }
 
   decreasePerPage(){
-    if(this.pageNumber - 5 <= 0){
-      this.pageNumber = 1;
+    if(this.pageNumber - 2 <= 0){
+      this.pageNumber = 4;
     }
     else{
-      this.pageNumber -= 5;
+      this.pageNumber -= 2;
     }
   }
 
   increasePerPage(){
     if(this.pageNumber == 1){
-      this.pageNumber = 0;
+      this.pageNumber = 4;
     }
-    this.pageNumber += 5;
+    this.pageNumber += 2;
   }
 
 

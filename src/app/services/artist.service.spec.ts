@@ -21,9 +21,11 @@ describe('ArtistService', () => {
   });
 
   it('should get a number of records when do a query', () => {
-    var resultCounter: number = 0;
+    var result: number = 0;
     var queryResult = service.getArtistAlbums("Coldplay").subscribe(data =>{
-      expect(data.resultCounter).toEqual(50);
+      result = data.resultCount;
     });
+    console.log(queryResult);
+    expect(result).toEqual(50);
   });
 });
