@@ -7,12 +7,12 @@ This developed application has the objective of being a seeker for specific arti
 ### Features
 
 This is a list of the available features included:
-*Artist Album Searcher.
-*Control of empty results and not found artist.
-*Customizable pagination.
-*See all albums option.
-*Reset pagination option.
-*Alphabetic sorting,  ascendant and descendant.
+* Artist Album Searcher.
+* Control of empty results and not found artist.
+* Customizable pagination.
+* See all albums option.
+* Reset pagination option.
+* Alphabetic sorting,  ascendant and descendant.
 
 ### API
 
@@ -24,8 +24,8 @@ When using the searcher, at the time of introducing the artist, avoid introducin
 
 When needed, use them, for example:
 
-*Don't look for Imagine+Dragons if the original name is Imagine Dragons.
-*Use + in names like Florence + The Machine because it originally has + sign
+* Don't look for Imagine+Dragons if the original name is Imagine Dragons.
+* Use + in names like Florence + The Machine because it originally has + sign
 
 
 
