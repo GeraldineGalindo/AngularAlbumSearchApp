@@ -12,6 +12,8 @@ export class AlbumsComponent implements OnInit {
   wasRequested : boolean = false;
   actualPage: number = 1;
   pageNumber: number = 8;
+  areAllShown: boolean = false;
+  ascendant: boolean = true;
   constructor(private artistService:ArtistService) { }
 
   ngOnInit(): void {
@@ -19,7 +21,20 @@ export class AlbumsComponent implements OnInit {
     this.wasRequested = false;
   }
 
+  filterResultsByArtist(artist:string):void{
+    this.albums = this.albums.filter(function(album){
+      return album.artistName.toLocaleUpperCase().includes(artist.toUpperCase());
+    })    
+  }
 
+  orderResult():void{
+    if(this.ascendant){
+      this.albums.sort(this.compareAsc);
+    }
+    else{
+      this.albums.sort(this.compareDes);
+    }
+  }
   searchArtistAlbums(artist:string): void{
     if(artist == ""){
       this.wasRequested = false;
@@ -29,10 +44,8 @@ export class AlbumsComponent implements OnInit {
         data => {
           this.wasRequested = true;
           this.albums = data.results;
-          this.albums = this.albums.filter(function(album){
-            return album.artistName.toLocaleUpperCase().includes(artist.toUpperCase());
-          })
-          this.albums.sort(this.compareAsc);
+          this.filterResultsByArtist(artist);
+          this.orderResult();
         },
         err => console.log('Http Error', err)
       );
@@ -79,16 +92,18 @@ export class AlbumsComponent implements OnInit {
   orderByCriteria(criteria: string): void{
     if(criteria == "Ascendant"){
       this.albums.sort(this.compareAsc);
+      this.ascendant = true;
     }
     if(criteria =="Descendant"){
       this.albums.sort(this.compareDes);
+      this.ascendant = false;
     }
 
   }
 
   decreasePerPage(){
     if(this.pageNumber - 2 <= 0){
-      this.pageNumber = 4;
+      this.pageNumber = 2;
     }
     else{
       this.pageNumber -= 2;
@@ -97,9 +112,21 @@ export class AlbumsComponent implements OnInit {
 
   increasePerPage(){
     if(this.pageNumber == 1){
-      this.pageNumber = 4;
+      this.pageNumber = 2;
     }
-    this.pageNumber += 2;
+    if(this.pageNumber < this.albums.length){
+      this.pageNumber += 2;
+    }
+  }
+
+  seeAllResults(){
+    this.pageNumber= this.albums.length;
+    this.areAllShown = true;
+  }
+
+  resetPagination(){
+    this.pageNumber = 8;
+    this.areAllShown = false;
   }
 
 

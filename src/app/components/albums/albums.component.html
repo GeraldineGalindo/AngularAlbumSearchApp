@@ -12,6 +12,8 @@
                 <button class="btn btn-primary" (click)="decreasePerPage()">-</button>
                 <input class="perPage form-control" [value]="pageNumber">
                 <button class="btn btn-primary" (click)="increasePerPage()">+</button>
+                <button *ngIf="!areAllShown" class="btn btn-primary" (click)="seeAllResults()">See all Albums</button>
+                <button *ngIf="areAllShown" class="btn btn-primary" (click)="resetPagination()">Reset Pagination</button>
             </form>
             <div class="pages">
                 <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
