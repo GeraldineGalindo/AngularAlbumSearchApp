@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 
 import { SearchArtistAlbumsComponent } from './search-artist-albums.component';
@@ -9,6 +10,7 @@ describe('SearchArtistAlbumsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ SearchArtistAlbumsComponent ]
     })
     .compileComponents();

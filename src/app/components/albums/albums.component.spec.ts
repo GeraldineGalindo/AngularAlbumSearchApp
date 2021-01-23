@@ -4,6 +4,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ArtistService } from '../../services/artist.service';
 import { HttpClient } from '@angular/common/http';
 import { AlbumsComponent } from './albums.component';
+import { SearchArtistAlbumsComponent } from '../search-artist-albums/search-artist-albums.component';
+import { WelcomeTextComponent } from '../layout/welcome-text/welcome-text.component';
+import { OrderResultOptionsComponent } from '../order-result-options/order-result-options.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AlbumsComponent', () => {
   let component: AlbumsComponent;
@@ -14,8 +18,14 @@ describe('AlbumsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlbumsComponent ],
-      imports: [HttpClientTestingModule],
+      declarations: 
+      [ 
+        AlbumsComponent,
+        SearchArtistAlbumsComponent,
+        WelcomeTextComponent,
+        OrderResultOptionsComponent
+      ],
+      imports: [HttpClientTestingModule, FormsModule],
       providers: [ArtistService]
     })
     .compileComponents();

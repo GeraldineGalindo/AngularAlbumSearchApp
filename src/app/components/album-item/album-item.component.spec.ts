@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SearchArtistAlbumsComponent } from '../search-artist-albums/search-artist-albums.component';
 
 import { AlbumItemComponent } from './album-item.component';
 
@@ -8,7 +9,7 @@ describe('AlbumItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlbumItemComponent ]
+      declarations: [ AlbumItemComponent]
     })
     .compileComponents();
   });
