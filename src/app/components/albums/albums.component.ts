@@ -54,6 +54,7 @@ export class AlbumsComponent implements OnInit {
           this.albums = data.results;
           this.filterResultsByArtist(artist);
           this.orderResult();
+          this.actualPage = 1;
   }
 
   hasAlbumsToShow(): boolean{
