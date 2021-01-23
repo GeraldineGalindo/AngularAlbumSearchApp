@@ -47,7 +47,7 @@ export class AlbumItemComponent implements OnInit {
   }
 
   hasNotAlbumCover():boolean{
-    return (this.album == undefined || this.album.artworkUrl100 == null);
+    return (this.album == undefined || this.album.artworkUrl100 == null || this.album.artworkUrl100 == "");
   }
 
   hasCover(): boolean{
