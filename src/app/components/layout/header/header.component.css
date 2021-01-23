@@ -1,0 +1,7 @@
+.title-container{
+    text-align: center;
+    width: auto;
+    min-height: 100px;
+    padding: 30px;
+    background-image: linear-gradient(180deg, #50C9C3 10%, #ebedee 90%);
+}
