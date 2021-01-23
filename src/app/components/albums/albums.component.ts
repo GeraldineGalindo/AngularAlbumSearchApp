@@ -42,14 +42,18 @@ export class AlbumsComponent implements OnInit {
     else{
       var albumResult = this.artistService.getArtistAlbums(artist).subscribe(
         data => {
-          this.wasRequested = true;
-          this.albums = data.results;
-          this.filterResultsByArtist(artist);
-          this.orderResult();
+          this.processResult(data, artist);
         },
         err => console.log('Http Error', err)
       );
     }
+  }
+
+  processResult(data:any, artist:string):void{
+    this.wasRequested = true;
+          this.albums = data.results;
+          this.filterResultsByArtist(artist);
+          this.orderResult();
   }
 
   hasAlbumsToShow(): boolean{
