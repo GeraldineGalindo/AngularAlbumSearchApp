@@ -27,6 +27,10 @@ When needed, use them, for example:
 * Don't look for Imagine+Dragons if the original name is Imagine Dragons.
 * Use + in names like Florence + The Machine because it originally has + sign
 
+## Extra documentation
+
+To find more information about implementation and user visit [Angular Album Search App Documentation](https://docs.google.com/document/d/1cg9qLbIauzPMPIDA4Jd6wlIXyCHXJOTwN_v_oc8sHms/edit?usp=sharing).
+
 
 
 
