@@ -11,7 +11,7 @@ export class AlbumsComponent implements OnInit {
   albums: AlbumInfo[] = [];
   wasRequested : boolean = false;
   actualPage: number = 1;
-  pageNumber: number = 8;
+  elementsPerPage: number = 8;
   areAllShown: boolean = false;
   ascendant: boolean = true;
   constructor(private artistService:ArtistService) { }
@@ -104,31 +104,37 @@ export class AlbumsComponent implements OnInit {
   }
 
   decreasePerPage(){
-    if(this.pageNumber - 2 <= 0){
-      this.pageNumber = 2;
+    if(this.elementsPerPage == this.albums.length && this.elementsPerPage % 2 !=0){
+      this.elementsPerPage -= 1;
+    }
+    if(this.elementsPerPage - 2 <= 0){
+      this.elementsPerPage = 2;
     }
     else{
-      this.pageNumber -= 2;
+      this.elementsPerPage -= 2;
     }
   }
 
   increasePerPage(){
-    if(this.pageNumber == 1){
-      this.pageNumber = 2;
+    if(this.elementsPerPage == 1){
+      this.elementsPerPage = 2;
     }
-    if(this.pageNumber < this.albums.length){
-      this.pageNumber += 2;
+    if(this.elementsPerPage < this.albums.length){
+      this.elementsPerPage += 2;
+    }
+    if(this.elementsPerPage == this.albums.length){
+      this.elementsPerPage = this.albums.length;
     }
   }
 
   seeAllResults(){
-    this.pageNumber= this.albums.length;
+    this.elementsPerPage= this.albums.length;
     this.actualPage = 1;
     this.areAllShown = true;
   }
 
   resetPagination(){
-    this.pageNumber = 8;
+    this.elementsPerPage = 8;
     this.areAllShown = false;
   }
 
