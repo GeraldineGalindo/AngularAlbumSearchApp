@@ -10,7 +10,7 @@
         <div class="pagination-options">
             <form class="controller form-inline">
                 <button class="btn btn-primary" (click)="decreasePerPage()">-</button>
-                <input class="perPage form-control" [value]="elementsPerPage">
+                <input class="perPage form-control" [value]="elementsPerPage" disabled>
                 <button class="btn btn-primary" (click)="increasePerPage()">+</button>
                 <button *ngIf="!areAllShown" class="btn btn-primary" (click)="seeAllResults()">See all Albums</button>
                 <button *ngIf="areAllShown" class="btn btn-primary" (click)="resetPagination()">Reset Pagination</button>
