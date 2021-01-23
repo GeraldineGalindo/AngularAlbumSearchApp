@@ -24,7 +24,6 @@ describe('OrderResultOptionsComponent', () => {
   });
 
   it('should emit Ascendant when click Order A-Z option', () =>{
-    const comp = fixture.componentInstance;
     spyOn(component.orderResults, 'emit');
 
     const radioButton = fixture.nativeElement.querySelector('div.asc > input');
@@ -35,7 +34,6 @@ describe('OrderResultOptionsComponent', () => {
   })
 
   it('should emit Descendant when click Order Z-A option', () =>{
-    const comp = fixture.componentInstance;
     spyOn(component.orderResults, 'emit');
 
     const radioButton = fixture.nativeElement.querySelector('div.des > input');
