@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ArtistService {
-  albumUrl !: 'https://itunes.apple.com/search';
+  albumUrl : string = 'https://itunes.apple.com/search';
   constructor(private http:HttpClient) { }
 
   getArtistAlbums(artist:string):Observable<any>{
