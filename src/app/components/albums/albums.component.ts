@@ -125,6 +125,7 @@ export class AlbumsComponent implements OnInit {
 
   seeAllResults(){
     this.pageNumber= this.albums.length;
+    this.actualPage = 1;
     this.areAllShown = true;
   }
 

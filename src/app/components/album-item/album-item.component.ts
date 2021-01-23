@@ -20,23 +20,39 @@ export class AlbumItemComponent implements OnInit {
     this.setUpAlbumData();
   }
 
+  initializeInEmpty():void{
+    this.albumName = "";
+    this.artistName = "";
+    this.currency = "";
+    this.albumPrice = 0;
+  }
+  
+  initializeWithInput():void{
+    this.albumName = this.album.collectionName;
+    this.artistName = this.album.artistName;
+    this.albumPrice = this.album.collectionPrice;
+    this.currency = this.album.currency;
+  }
+
+  isInvalidInput(): boolean{
+    return (this.album === undefined || this.album == null);
+  }
+  
   setUpAlbumData(): void{
-    if(this.album === undefined || this.album == null){
-      this.albumName = "";
-      this.artistName = "";
-      this.currency = "";
-      this.albumPrice = 0;
+    if(this.isInvalidInput()){
+      this.initializeInEmpty();
     }
     else{
-      this.albumName = this.album.collectionName;
-      this.artistName = this.album.artistName;
-      this.albumPrice = this.album.collectionPrice;
-      this.currency = this.album.currency;
+      this.initializeWithInput();
     }
   }
 
+  hasNotAlbumCover():boolean{
+    return (this.album == undefined || this.album.artworkUrl100 == null);
+  }
+
   hasCover(): boolean{
-    if( this.album == undefined || this.album.artworkUrl100 == null){
+    if(this.hasNotAlbumCover()){
       return false;
     }
     return true;
