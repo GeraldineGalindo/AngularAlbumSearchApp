@@ -12,8 +12,7 @@ export class AlbumItemComponent implements OnInit {
   albumPrice !: number;
   artistName !: string;
   currency !: string;
-  constructor() {
-    
+  constructor() {   
    }
 
   ngOnInit(): void {

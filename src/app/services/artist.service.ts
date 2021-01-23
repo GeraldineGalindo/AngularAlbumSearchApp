@@ -13,7 +13,6 @@ export class ArtistService {
 
   getArtistAlbums(artist:string):Observable<any>{
     const url = 'https://itunes.apple.com/search';
-    //return this.http.get<any>(`${url}?term=${artist}&entity=album`);
     return this.http.post<any>(`${url}?term=${artist}&entity=album`,artist);
   }
 }

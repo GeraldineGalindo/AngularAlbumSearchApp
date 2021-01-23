@@ -68,7 +68,6 @@ export class AlbumsComponent implements OnInit {
   compareAsc(a:AlbumInfo, b:AlbumInfo): number{
     const albumA = a.collectionName.toUpperCase();
     const albumB = b.collectionName.toUpperCase();
-
     let comparison = 0;
     if(albumA > albumB){
       comparison = 1;
@@ -82,7 +81,6 @@ export class AlbumsComponent implements OnInit {
   compareDes(a:AlbumInfo, b:AlbumInfo): number{
     const albumA = a.collectionName.toUpperCase();
     const albumB = b.collectionName.toUpperCase();
-
     let comparison = 0;
     if(albumA < albumB){
       comparison = 1;
