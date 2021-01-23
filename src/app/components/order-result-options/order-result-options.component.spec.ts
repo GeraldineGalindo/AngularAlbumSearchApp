@@ -22,4 +22,26 @@ describe('OrderResultOptionsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit Ascendant when click Order A-Z option', () =>{
+    const comp = fixture.componentInstance;
+    spyOn(component.orderResults, 'emit');
+
+    const radioButton = fixture.nativeElement.querySelector('div.asc > input');
+    radioButton.dispatchEvent(new Event('click'));
+
+    fixture.detectChanges();
+    expect(component.orderResults.emit).toHaveBeenCalledWith('Ascendant');
+  })
+
+  it('should emit Descendant when click Order Z-A option', () =>{
+    const comp = fixture.componentInstance;
+    spyOn(component.orderResults, 'emit');
+
+    const radioButton = fixture.nativeElement.querySelector('div.des > input');
+    radioButton.dispatchEvent(new Event('click'));
+
+    fixture.detectChanges();
+    expect(component.orderResults.emit).toHaveBeenCalledWith('Descendant');
+  });
 });
